@@ -1,0 +1,34 @@
+.layout {
+  display: grid;
+  grid-template-rows: 55px auto 24px 25px;
+  grid-template-areas: 
+  "header"
+  "content"
+  "."
+  "footer";
+  width: 100%;
+  min-height: 100vh;
+}
+
+.layout__header, 
+.layout__footer,
+.layout__content {
+  display: block;
+  width: 100%;
+}
+
+.layout__header {
+  grid-area: "header";
+}
+
+.layout__content {
+  grid-area: "content";
+  padding: 0 20px;
+}
+
+.layout__footer {
+  grid-area: "footer";
+}
+
+
+

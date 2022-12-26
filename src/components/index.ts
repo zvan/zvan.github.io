@@ -1,0 +1,7 @@
+export * from './footer'
+export * from './header'
+export * from './ingredients'
+export * from './layout'
+export * from './title'
+export * from './image'
+export * from './tag'

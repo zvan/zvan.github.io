@@ -1,0 +1,22 @@
+.image {
+  display: block;
+  position: relative;
+  width: 100%;
+  background-color: grey;
+  margin-bottom: 24px;
+}
+
+.image__tags {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  padding: 16px 12px;
+}
+
+img + .image__tags {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+

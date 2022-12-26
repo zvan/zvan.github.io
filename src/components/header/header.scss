@@ -1,0 +1,29 @@
+.header {
+  display: grid;
+  width: 100%;
+  padding: 12px 20px 13px;
+  grid-template-columns: auto 24px;
+  grid-gap: 14px;
+
+}
+.header__name {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 30px auto;
+  grid-gap: 14px;
+}
+
+.header__logo {
+  background-color: #1F1702;
+  border-radius: 50%;
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+.header__title{
+  color: #1F1702;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 16px;
+  
+}

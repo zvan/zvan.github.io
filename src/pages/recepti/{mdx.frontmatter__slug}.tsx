@@ -1,29 +1,47 @@
 import * as React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
+import { Layout, Ingredients, Title, Image } from "../../components";
 
-const IndexPage: React.FC<PageProps> = ({ data, children }) => {
+interface RecipesData {
+  mdx: {
+    frontmatter: {
+      title: string;
+      tags?: string[];
+      ingredients?: string[];
+      source?: string;
+    };
+  };
+}
+
+const Recipe: React.FC<PageProps<RecipesData>> = ({
+  data: {
+    mdx: {
+      frontmatter: { title, tags, ingredients, source },
+    },
+  },
+  children,
+}) => {
   return (
-    <main>
-      <h1>{data.mdx.frontmatter.title}</h1>
-      <span>{data.mdx.frontmatter.source}</span>
-      <ul>
-        {data.mdx.frontmatter.tags.map((tag) => (
-          <li>{tag}</li>
-        ))}
-      </ul>
-      <ul>
-        {data.mdx.frontmatter.ingredients.map((ingredient) => (
-          <li>{ingredient}</li>
-        ))}
-      </ul>
+    <Layout>
+      {tags && <Image tags={tags}></Image>}
+      <Title>{title}</Title>
+      {ingredients && <Ingredients ingredients={ingredients}></Ingredients>}
+      <span>{source}</span>
+
       {children}
-    </main>
+    </Layout>
   );
 };
 
-export default IndexPage;
+export default Recipe;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC<RecipesData> = ({
+  data: {
+    mdx: {
+      frontmatter: { title },
+    },
+  },
+}) => <title>{title}</title>;
 
 export const query = graphql`
   query ($id: String) {
