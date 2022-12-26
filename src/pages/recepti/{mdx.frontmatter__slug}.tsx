@@ -2,7 +2,7 @@ import * as React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import { Layout, Ingredients, Title, Image } from "../../components";
 
-interface RecipesData {
+interface RecipeData {
   mdx: {
     frontmatter: {
       title: string;
@@ -13,7 +13,7 @@ interface RecipesData {
   };
 }
 
-const Recipe: React.FC<PageProps<RecipesData>> = ({
+const Recipe: React.FC<PageProps<RecipeData>> = ({
   data: {
     mdx: {
       frontmatter: { title, tags, ingredients, source },
@@ -35,7 +35,7 @@ const Recipe: React.FC<PageProps<RecipesData>> = ({
 
 export default Recipe;
 
-export const Head: HeadFC<RecipesData> = ({
+export const Head: HeadFC<RecipeData> = ({
   data: {
     mdx: {
       frontmatter: { title },

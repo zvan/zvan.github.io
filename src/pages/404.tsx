@@ -1,17 +1,18 @@
-import * as React from "react"
-import { Link, HeadFC, PageProps } from "gatsby"
-
-
+import * as React from "react";
+import { Link, HeadFC, PageProps } from "gatsby";
+import { Image, Layout, Title } from "../components";
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
-    <main >
-      <h1 >Page not found</h1>
-        <Link to="/">Go home</Link>.
-    </main>
-  )
-}
+    <Layout>
+      <Image></Image>
+      <Title>These are not the cupcakes you were looking for</Title>
 
-export default NotFoundPage
+      <Link to={`/`}>Home</Link>
+    </Layout>
+  );
+};
 
-export const Head: HeadFC = () => <title>Not found</title>
+export default NotFoundPage;
+
+export const Head: HeadFC = () => <title>Not found</title>;

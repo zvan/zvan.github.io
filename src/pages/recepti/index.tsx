@@ -1,27 +1,49 @@
 import * as React from "react";
 import { graphql, HeadFC, Link, PageProps } from "gatsby";
+import { Grid, Image, Layout, Title } from "../../components";
+import { Snippet } from "../../components";
 
-const IndexPage: React.FC<PageProps> = ({ data }) => {
+interface RecipeData {
+  allMdx: {
+    nodes: {
+      frontmatter: {
+        title: string;
+        slug: string;
+        ingredients: string[];
+      };
+      id: string;
+    }[];
+  };
+}
+
+const Recipes: React.FC<PageProps<RecipeData>> = ({
+  data: {
+    allMdx: { nodes },
+  },
+}) => {
   return (
-    <main>
-      <h1>recepti</h1>
+    <Layout>
+      <Image></Image>
+      <Title>Recepti</Title>
 
-      {data.allMdx.nodes.map((node) => (
-        <article key={node.id}>
-          <h2>
-            <Link to={`/recepti/${node.frontmatter.slug}`}>
-              {node.frontmatter.title}
-            </Link>
-          </h2>
-        </article>
-      ))}
-    </main>
+      <Grid>
+        {nodes.map((node) => (
+          <Snippet
+            key={node.id}
+            to={`/recepti/${node.frontmatter.slug}`}
+            title={node.frontmatter.title}
+          >
+            <p>{node.frontmatter.ingredients.join(", ")}</p>
+          </Snippet>
+        ))}
+      </Grid>
+    </Layout>
   );
 };
 
-export default IndexPage;
+export default Recipes;
 
-export const Head: HeadFC = () => <title>recepti Page</title>;
+export const Head: HeadFC<RecipeData> = () => <title>Recepti</title>;
 
 export const query = graphql`
   query {
@@ -30,6 +52,7 @@ export const query = graphql`
         frontmatter {
           title
           slug
+          ingredients
         }
         id
       }

@@ -5,16 +5,14 @@ import { Tag } from "../tag";
 
 import "./image.scss";
 
-export const Image: React.FC<React.PropsWithChildren<{ tags: string[] }>> = ({
+export const Image: React.FC<React.PropsWithChildren<{ tags?: string[] }>> = ({
   children,
   tags,
 }) => {
   return (
     <figure className="image">
       <figcaption className="image__tags">
-        {tags.map((tag) => (
-          <Tag key={tag}>{tag}</Tag>
-        ))}
+        {tags && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
       </figcaption>
     </figure>
   );
