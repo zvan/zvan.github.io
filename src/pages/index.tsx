@@ -1,14 +1,28 @@
 import * as React from "react";
-import { HeadFC, Link, PageProps } from "gatsby";
-import { Image, Layout, Title } from "../components";
+import { graphql, HeadFC, Link, PageProps, useStaticQuery } from "gatsby";
+import { Image, Layout, Search, Title } from "../components";
 
 const IndexPage: React.FC<PageProps> = () => {
+  const data = useStaticQuery(graphql`
+    query SearchQuery {
+      localSearchRecipes {
+        index
+        store
+      }
+    }
+  `);
+
   return (
     <Layout>
       <Image></Image>
-      <Title>Kuharica TBD</Title>
-      <p>search here</p>
-      <Link to={`/recepti/`}>recepti</Link>
+      <Title>
+        <del>Domači recepti</del> Domače skrivnosti
+      </Title>
+
+      <Search
+        index={data.localSearchRecipes.index}
+        store={data.localSearchRecipes.store}
+      />
     </Layout>
   );
 };

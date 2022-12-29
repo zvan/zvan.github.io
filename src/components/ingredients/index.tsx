@@ -11,7 +11,7 @@ export const Ingredients: React.FC<
       <h2 className="ingredients__title">Sestavine</h2>
       <ul>
         {ingredients.map((ingredient) => (
-          <li>{ingredient}</li>
+          <li key={ingredient}>{ingredient}</li>
         ))}
       </ul>
     </section>
