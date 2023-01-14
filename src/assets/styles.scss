@@ -1,24 +1,21 @@
 @import 'reset-css/sass/reset';
 
 // Fonts
-@import url('https://fonts.googleapis.com/css2?Open+Sans:wght@400;600&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?Noto+Sans:wght@300&Noto+Serif:wght@400;700&family=Playfair+Display&display=swap');
 
 
 // Global
-
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
-
 // Typography
-
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Noto Serif', serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 13px;
+  line-height: 20px; 
   color: #1F1702;
 }
 
@@ -27,6 +24,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol {
     margin-bottom: 0;
   }
 }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
   font-style: normal;
@@ -34,14 +32,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, ul, ol {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 h1 {
   font-size: 32px;
   line-height: 37px;
   margin-bottom: 24px;
-  padding-left: 17px;
 }
 
 

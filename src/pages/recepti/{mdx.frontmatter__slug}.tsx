@@ -1,6 +1,13 @@
 import * as React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
-import { Layout, Ingredients, Title, Image } from "../../components";
+import {
+  Layout,
+  Ingredients,
+  Title,
+  Image,
+  Container,
+  Author,
+} from "../../components";
 
 interface RecipeData {
   mdx: {
@@ -23,12 +30,18 @@ const Recipe: React.FC<PageProps<RecipeData>> = ({
 }) => {
   return (
     <Layout>
-      {tags && <Image tags={tags}></Image>}
-      <Title>{title}</Title>
+      <Image></Image>
+      <Title
+        subtitle={
+          <>
+            {tags?.join(" ")} (<Author>{source}</Author>) ☞ ?? min
+          </>
+        }
+      >
+        {title}
+      </Title>
       {ingredients && <Ingredients ingredients={ingredients}></Ingredients>}
-      <span>{source}</span>
-
-      {children}
+      <Container>{children}</Container>
     </Layout>
   );
 };

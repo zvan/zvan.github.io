@@ -15,9 +15,7 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <Layout>
       <Image></Image>
-      <Title>
-        <del>Domači recepti</del> Domače skrivnosti
-      </Title>
+      <Title>Poišči kuharske skrivnosti</Title>
 
       <Search
         index={data.localSearchRecipes.index}
