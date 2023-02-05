@@ -9,6 +9,8 @@ import {
   Author,
 } from "../../components";
 
+import "./detail.scss";
+
 interface RecipeData {
   mdx: {
     frontmatter: {
