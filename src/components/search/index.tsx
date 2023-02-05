@@ -1,25 +1,61 @@
-import { Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import * as React from "react";
-import { useFlexSearch } from "react-use-flexsearch";
 import { Grid } from "../grid";
 import { Snippet } from "../snippet";
 
 import "./search.scss";
 
-interface SearchProps {
-  index: Object;
-  store: Object;
+interface SearchItem {
+  id: string;
+  title: string;
+  slug: string;
 }
 
-export const Search: React.FC<SearchProps> = ({ index, store }) => {
-  const options = {
-    encode: "advanced",
-  };
-  const [query, setQuery] = React.useState("");
-  const results = useFlexSearch(query, index, store, options);
+const normalizeCharacters = (s: string) => {
+  return s.toLowerCase().replace("č", "c").replace("š", "s").replace("ž", "z");
+};
 
-  const handleChange = (event) => {
-    setQuery(event.target.value);
+export const Search: React.FC<SearchProps> = () => {
+  const items: SearchItem[] = useStaticQuery(graphql`
+    query SearchQuery {
+      allMdx {
+        nodes {
+          id
+          frontmatter {
+            title
+            slug
+          }
+        }
+      }
+    }
+  `).allMdx.nodes.map(
+    ({
+      id,
+      frontmatter: { title, slug },
+    }: {
+      id: string;
+      frontmatter: { title: string; slug: string };
+    }) => {
+      return {
+        id,
+        title,
+        slug,
+      };
+    }
+  );
+
+  const [query, setQuery] = React.useState("");
+  const [results, setResults] = React.useState(items);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const q = event.target.value;
+
+    const r = items.filter(({ title }) =>
+      normalizeCharacters(title).includes(normalizeCharacters(q))
+    );
+
+    setQuery(q);
+    setResults(r);
   };
 
   return (
@@ -39,9 +75,7 @@ export const Search: React.FC<SearchProps> = ({ index, store }) => {
               key={node.id}
               to={`/recepti/${node.slug}`}
               title={node.title}
-            >
-              {node.ingredients && <p>{node.ingredients.join(", ")}</p>}
-            </Snippet>
+            ></Snippet>
           ))}
         </Grid>
       </div>

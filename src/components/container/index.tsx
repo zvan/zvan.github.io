@@ -1,7 +1,19 @@
 import * as React from "react";
+import classNames from "classnames";
 
 import "./container.scss";
 
-export const Container: React.FC<React.PropsWithChildren> = ({ children }) => {
-  return <div className="container">{children}</div>;
+interface ContainerProps extends React.PropsWithChildren {
+  border: React.ReactNode;
+}
+
+export const Container: React.FC<ContainerProps> = ({
+  children,
+  border = false,
+}) => {
+  return (
+    <div className={classNames("container", { "container--border": border })}>
+      {children}
+    </div>
+  );
 };
