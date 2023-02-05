@@ -1,3 +1,13 @@
+@import 'src/assets/toolbox';
+
+
+$container-padding: 17px;
+
 .container {
-  padding: 0 17px;
+  padding: 0 $container-padding;
+}
+
+.container--border {
+  padding: $container-padding - 1;
+  border: 1px dashed $color-text;
 }

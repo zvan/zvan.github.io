@@ -1,13 +1,16 @@
+@import 'src/assets/toolbox';
+
 .ingredients {
-  font-size: 10px;
+  font-size: 13px;
   line-height: 16px;
   display: block;
-  padding: 16px;
-  border: 1px dashed #1F1702;
   margin-bottom: 24px;
+  font-family: $font-family-special;
 }
 
 .ingredients__title {
   display: block;
+  font-family: $font-family-special;
+  text-transform: uppercase;
   font-weight: 900
 }

@@ -1,7 +1,8 @@
 @import 'reset-css/sass/reset';
+@import 'src/assets/toolbox';
 
 // Fonts
-@import url('https://fonts.googleapis.com/css2?Noto+Sans:wght@300&Noto+Serif:wght@400;700&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?Noto+Sans:wght@300+900&Noto+Serif:wght@400;700&family=Playfair+Display&display=swap');
 
 
 // Global
@@ -11,12 +12,12 @@
 
 // Typography
 body {
-  font-family: 'Noto Serif', serif;
+  font-family: $font-family-body;
   font-style: normal;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 20px; 
-  color: #1F1702;
+  font-size: 16px;
+  line-height: 24px; 
+  color: $color-text;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol {
@@ -32,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, ul, ol {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 h1 {
