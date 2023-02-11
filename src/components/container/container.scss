@@ -8,6 +8,6 @@ $container-padding: 17px;
 }
 
 .container--border {
-  padding: $container-padding - 1;
   border: 1px dashed $color-text;
+  padding: $container-padding - 1;
 }

@@ -1,45 +1,47 @@
 .header {
   display: grid;
-  width: 100%;
-  padding: 12px 20px 13px;
   grid-template-columns: auto 24px;
   grid-gap: 14px;
+  padding: 12px 20px 13px;
+  width: 100%;
 
 }
+
 .header__name {
   display: grid;
-  align-items: center;
   grid-template-columns: 30px auto;
   grid-gap: 14px;
+  align-items: center;
 }
 
 .header__logo {
-  position: relative;
-  background-color: #1F1702;
-  border-radius: 50%;
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
-  color: #FFFEFB;
-  font-weight: 500;
-  font-size: 15px;
-  height: 30px;
+  border-radius: 50%;
+  background-color: #1F1702;
   width: 30px;
+  height: 30px;
+  color: #FFFEFB;
+  font-size: 15px;
+  font-weight: 500;
 }
+
 .header__logo::after{
   position: absolute;
   top:2px;
-  left:2px;
   right:2px;
   bottom:2px;
+  left:2px;
   border: 1px dashed #FFFEFB;
   border-radius: 50%;
   content: "";
 }
+
 .header__title{
-  color: #1F1702;
-  font-weight: 700;
-  font-size: 15px;
   line-height: 16px;
-  
+  color: #1F1702;
+  font-size: 15px;
+  font-weight: 700;
 }

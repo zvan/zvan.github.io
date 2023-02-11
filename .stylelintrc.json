@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-concentric-order",
+    "stylelint-config-prettier-scss"
+  ],
+  "plugins": ["stylelint-selector-bem-pattern"],
+  "rules": {
+    "selector-class-pattern": [
+      "^([a-z][a-zA-Z0-9]+)(__([a-z][a-zA-Z0-9]+))?(--([a-z][a-zA-Z0-9]+))?$",
+      {
+        "message": "Expected selectors to match BEM convention: {componentName}__{elementName}--{modifierName}"
+      }
+    ],
+    "max-nesting-depth": [
+      0,
+      {
+        "ignore": ["pseudo-classes"]
+      }
+    ]
+  }
+}

@@ -1,11 +1,11 @@
 .layout {
   display: grid;
-  grid-template-rows: 55px auto 24px 25px;
   grid-template-areas: 
   "header"
   "content"
   "."
   "footer";
+  grid-template-rows: 55px auto 24px 25px;
   width: 100%;
   min-height: 100vh;
 }
